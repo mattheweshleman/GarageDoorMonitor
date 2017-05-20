@@ -5,7 +5,7 @@ This repo contains the source code for a system of MQTT networked ESP32 based de
 Features:
 
 * two build outputs: switch monitor build and led indicator build
-* 
+* MQTT based, business logic is implemented "elsewhere." FWIW: I used Node-RED to manage the switch events and handle the logic to light up the indicator unit.
 
 ## Target Hardware ##
 
@@ -42,10 +42,27 @@ It is assumed (and recommended) that the LED Strip itself is externally powered,
 
 #### MQTT Topics ####
 
-  
+The switch monitor will publish the state of the switch, when the state changes, to the following MQTT topic:
 
-## Teaching Demo ##
+/EshThings/Events/<ClientId>/Switch<num>/Status
 
+The indicator unit subscribes to the following topic:
+
+/EshThings/Indicators/<ClientId>/Pattern
+
+Patterns:
+
+* '0' None
+* '1' Hann Window Pulse (single pulse then off)
+* '2' Hann Window Pulse (repeats forever)
+* '3' Random Noise
+* '4' Morse Code SOS Pattern
+* '5' Same as '1', but scaled for different color range
+* '6' Same as '2', but scaled for different color range
+* '7' Knight Rider!
+* '8' Solid all white
+* '9' First half all white
+* '10' Second half all white
 
 
 ## Third Party ##
