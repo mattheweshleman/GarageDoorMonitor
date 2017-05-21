@@ -44,11 +44,11 @@ It is assumed (and recommended) that the LED Strip itself is externally powered,
 
 The switch monitor will publish the state of the switch, when the state changes, to the following MQTT topic:
 
-/EshThings/Events/<ClientId>/Switch<num>/Status
+/EshThings/Events/**CLIENT_ID**/Switch**NUM**/Status
 
 The indicator unit subscribes to the following topic:
 
-/EshThings/Indicators/<ClientId>/Pattern
+/EshThings/Indicators/**CLIENT_ID**/Pattern
 
 Patterns:
 
